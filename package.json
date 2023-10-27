@@ -1,0 +1,30 @@
+{
+  "name": "js-switcher-countdown-promise",
+  "version": "2.0.0",
+  "description": "",
+  "homepage": "https://troshuk.github.io/js-switcher-countdown-promise",
+  "scripts": {
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /js-switcher-countdown-promise/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/troshuk/js-switcher-countdown-promise.git"
+  },
+  "keywords": [],
+  "author": "Denys Troshuk <troshuk@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/troshuk/js-switcher-countdown-promise/issues"
+  },
+  "dependencies": {
+    "modern-normalize": "^1.1.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.6.0",
+    "parcel": "^2.6.0",
+    "parcel-reporter-clean-dist": "^1.0.4",
+    "posthtml-include": "^1.7.4"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead"
+}
