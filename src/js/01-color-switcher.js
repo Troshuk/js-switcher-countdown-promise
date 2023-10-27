@@ -8,9 +8,11 @@ class ColorSwitcher {
   #switchIntervalId;
   #isActive = false;
   setBackgroundColorFn;
+  disabledStartBtnFn;
 
-  constructor(setBackgroundColorFn) {
+  constructor(disabledStartBtnFn, setBackgroundColorFn) {
     this.setBackgroundColorFn = setBackgroundColorFn;
+    this.disabledStartBtnFn = disabledStartBtnFn;
   }
 
   startSwitcher() {
@@ -18,10 +20,11 @@ class ColorSwitcher {
 
     this.#switchIntervalId = setInterval(
       () => this.setBackgroundColorFn(this.#getRandomHexColor()),
-      100
+      1000
     );
 
     this.#isActive = true;
+    this.disabledStartBtnFn(true);
   }
 
   stopSwitcher() {
@@ -29,6 +32,7 @@ class ColorSwitcher {
 
     clearInterval(this.#switchIntervalId);
     this.#isActive = false;
+    this.disabledStartBtnFn(false);
   }
 
   #getRandomHexColor() {
@@ -38,11 +42,15 @@ class ColorSwitcher {
   }
 }
 
-const switcher = new ColorSwitcher(changeBackgroundColor);
+const switcher = new ColorSwitcher(disabledStartBtn, changeBackgroundColor);
 
 refs.startBtn.addEventListener('click', switcher.startSwitcher.bind(switcher));
 refs.stopBtn.addEventListener('click', switcher.stopSwitcher.bind(switcher));
 
 function changeBackgroundColor(color) {
   refs.body.style.backgroundColor = color;
+}
+
+function disabledStartBtn(isDisabled) {
+  refs.startBtn.disabled = isDisabled;
 }
