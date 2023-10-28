@@ -13,6 +13,7 @@ class ColorSwitcher {
   constructor(disabledStartBtnFn, setBackgroundColorFn) {
     this.setBackgroundColorFn = setBackgroundColorFn;
     this.disabledStartBtnFn = disabledStartBtnFn;
+    this.disabledStartBtnFn(false);
   }
 
   startSwitcher() {
@@ -53,4 +54,5 @@ function changeBackgroundColor(color) {
 
 function disabledStartBtn(isDisabled) {
   refs.startBtn.disabled = isDisabled;
+  refs.stopBtn.disabled = !isDisabled;
 }
