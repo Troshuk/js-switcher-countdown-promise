@@ -107,7 +107,7 @@ refs.startBtn.addEventListener('click', () => {
   refs.datePicker.disabled = true;
 });
 
-const flatpickr = flatpickr('input#datetime-picker', {
+flatpickr('input#datetime-picker', {
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
